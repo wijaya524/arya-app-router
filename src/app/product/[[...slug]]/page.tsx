@@ -3,7 +3,9 @@ type ProductPageProps = {
 };
 
 async function getData() {
-  const res = await fetch(" https://fakestoreapi.com/products");
+  const res = await fetch(" https://fakestoreapi.com/products", {
+    cache : "no-store"
+  });
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -31,7 +33,7 @@ export default async function Page(props: ProductPageProps) {
           >
             <a href="#">
               <img
-                className="p-8 rounded-t-lg object-cover h-64 w-96 "
+                className="p-8 rounded-t-lg object-cover h-64 w-96  rounded-xl"
                 src={product.image}
                 alt="product image"
               />
