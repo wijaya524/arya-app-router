@@ -1,9 +1,7 @@
 'use client'
 import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
-import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
-import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -17,10 +15,11 @@ export default function PasswordInput() {
     event.preventDefault();
   };
   return (
-    <>
-    <label htmlFor="">Password</label>
-    <OutlinedInput
-      sx={{ outline: 'none', borderColor: 'green' }}
+    <div className='flex flex-col'>
+    <label htmlFor="Password">Password</label>
+    <OutlinedInput fullWidth
+     id='Password'
+      sx={{ outline: 'none', borderColor: 'green'}}
       type={showPassword ? 'text' : 'password'}
       endAdornment={
         <InputAdornment position="end"  >
@@ -36,6 +35,6 @@ export default function PasswordInput() {
         </InputAdornment>
       }
     />
-      </>
+      </div>
   )
 }
