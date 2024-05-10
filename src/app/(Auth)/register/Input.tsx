@@ -14,7 +14,7 @@ export default function FullWidthTextField(props : {label: string, type: string}
         type: type
       }}
     >
-      <TextField inputProps={{ style: { color: '#fff', borderColor: '#fff' }, autoComplete: 'off' }} InputLabelProps={{ style: { color: '#fff' } }} fullWidth label={label} id="fullWidth" />
+      <TextField inputProps={{ style: { color: '#fff'}, autoComplete: 'off' }} InputLabelProps={{ style: { color: '#fff' } }} fullWidth label={label} id="fullWidth" />
     </Box>
   );
 }

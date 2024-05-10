@@ -6,15 +6,12 @@ export default function FullWidthTextField(props : {label: string, type: string}
     const {label, type} = props
   return (
     <Box
-      sx={{
-        width: 500,
-        maxWidth: '100%',
-        autoComplete: 'off',
-        py: 3,
-        type: type
-      }}
-    >
-      <TextField inputProps={{ style: { color: '#fff' }, autoComplete: 'off' }} InputLabelProps={{ style: { color: '#fff' } }} fullWidth label={label} id="fullWidth" />
-    </Box>
+    sx={{
+      width: 500,
+      maxWidth: '100%',
+    }}
+  >
+        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+  </Box>
   );
 }

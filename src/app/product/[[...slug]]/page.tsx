@@ -28,7 +28,7 @@ export default async function Page(props: ProductPageProps) {
       {JSON.stringify(products) &&
         products.map((product: any) => (
           <div
-            className=" w-72 max-w-sm bg-dark border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+            className=" w-72 max-w-sm bg-dark border shadow-lg shadow-slate-500 border-red-200 rounded-lg  dark:bg-gray-800 dark:border-gray-700"
             key={product.id}
           >
             <a href="#">
