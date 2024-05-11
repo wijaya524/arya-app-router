@@ -1,49 +1,34 @@
+import { getData } from "@/service/product";
+import Link from "next/link";
+
 type ProductPageProps = {
   params: { slug: string[] };
 };
 
-async function getData() {
-  const res = await fetch(" https://fakestoreapi.com/products", {
-    cache : "no-store"
-  });
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
 
 export default async function Page(props: ProductPageProps) {
   const { params } = props;
 
-  const products = await getData();
-  console.log(products);
+  const products = await getData(" https://fakestoreapi.com/products");
   return (
     <div className="  grid grid-cols-4 place-items-center mt-20 gap-10">
 
       {JSON.stringify(products) &&
         products.map((product: any) => (
-          <div
-            className=" w-72 max-w-sm bg-dark border shadow-lg shadow-slate-500 border-red-200 rounded-lg  dark:bg-gray-800 dark:border-gray-700"
+          <Link
+          href={`/product/detail/${product.id}`}
+            className=" w-72 max-w-sm bg-dark border shadow-lg shadow-slate-500 border-red-200 rounded-lg   dark:bg-gray-600 dark:border-gray-700 hover:scale-105 transition-all hover:shadow-none "
             key={product.id}
           >
-            <a href="#">
               <img
                 className="p-8 rounded-t-lg object-cover h-64 w-96  rounded-xl"
                 src={product.image}
                 alt="product image"
               />
-            </a>
             <div className="px-5 pb-5">
-              <a href="#">
                 <h5 className="text-xl font-semibold tracking-tight text-white">
                   {product.title}
                 </h5>
-              </a>
               <div className="flex items-center mt-2.5 mb-5">
                 <div className="flex items-center space-x-1 rtl:space-x-reverse">
                   <svg
@@ -102,15 +87,15 @@ export default async function Page(props: ProductPageProps) {
                     style: "currency", currency : "USD"
                   })}
                 </span>
-                <a
-                  href="#"
+                <button
+                  type="button"
                   className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                   Add to cart
-                </a>
+                </button>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
     </div>
   );
