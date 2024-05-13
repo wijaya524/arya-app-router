@@ -5,6 +5,7 @@ export default function Navbar() {
             <h1>Navbar</h1>
             <ul className="flex justify-around gap-5">
                 <Link href={"/"}><li>Home</li></Link> 
+                <Link href={"/product"}><li>Menu</li></Link> 
                 <Link href={"/Profile"}><li>Profile</li></Link> 
                 <Link href={"/about"}><li>About</li></Link> 
             </ul>
