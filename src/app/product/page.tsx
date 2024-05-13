@@ -12,7 +12,7 @@ export default async function Page() {
       {products.data.length > 0 && products.data.map((product : any) => (
 
 
-<div  className=" w-72 max-w-sm bg-slate-800 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 " key={product.id}>
+<Link href={`/product/detail/${product.id}`} className=" w-72 max-w-sm bg-slate-800 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 " key={product.id}>
   
         <img  className="p-8 rounded-t-lg object-cover h-64 w-72" src={product.image} alt="product image" />
    
@@ -45,7 +45,7 @@ export default async function Page() {
             <Link href={`/product/detail/${product.id}`} ><Button fullWidth variant="contained">Detail</Button></Link>
         </div>
     </div>
-</div>
+</Link>
 
       ))}
     </div>
