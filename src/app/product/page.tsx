@@ -8,7 +8,7 @@ export default async function Page() {
   console.log(products)
 
   return(
-    <div className=" grid grid-cols-4 place-items-center mt-20 gap-10" >
+    <div className=" flex flex-wrap items-center justify-center mt-20 gap-10 w-full max-w-full min-w-96" >
       {products.data.length > 0 && products.data.map((product : any) => (
 
 
