@@ -4,14 +4,15 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Profile() {
-    const { data: session, status } = useSession();
+    const { data: session, status } : {data: any, status: string} = useSession();
     const router = useRouter();
+    console.log(session)
 
     useEffect(() => {
-        if (status === "unauthenticated") {
+        if (status === "unauthenticated" || session?.user.role !== "admin") {
             router.push("/login")
         }
-    }, [router, status])
+    }, [router,  session?.user.role, status])
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <h1>Profile</h1>
