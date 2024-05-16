@@ -19,11 +19,11 @@ export default function Login() {
       const res = await signIn("credentials", {
         email: e.target.email.value,
         password: e.target.password.value,
-        callbackUrl: "/profile",
+        callbackUrl: "/",
         redirect: false,
       })
       if(!res?.error){
-        push("/profile")
+        push("/Profile")
       } else{
         console.log(res?.error)
       }
@@ -36,7 +36,7 @@ export default function Login() {
       <CssBaseline />
       <Container maxWidth="md">
         <div className="flex justify-center items-center h-screen">
-          <form onSubmit={() => {Handlelogin}} className=" bg-slate-900 w-2/4  max-w-full px-5 py-5 rounded-xl border-2 border-blue-600 shadow-md shadow-blue-900">
+          <form onSubmit={(e) => {Handlelogin(e)}} className=" bg-slate-900 w-2/4  max-w-full px-5 py-5 rounded-xl border-2 border-blue-600 shadow-md shadow-blue-900">
             <h1 className=" text-white py-3 text-3xl font-bold text-center">Login</h1>
             <FullWidthTextField type="email" label="Email" />
             <PasswordInput/>

@@ -1,5 +1,6 @@
 "use client"
-import { useSession } from "next-auth/react";
+import { push } from "firebase/database";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
@@ -7,14 +8,16 @@ export default function Profile() {
     const { data: session, status } : {data: any, status: string} = useSession();
     const router = useRouter();
     console.log(session)
+    console.log(status)
 
     useEffect(() => {
         if (status === "unauthenticated" ) {
-            router.push("/login")
+            signIn()
         }else {
-           if(session !== undefined && session?.user.role === "admin"){       
+           if(session !== undefined || session?.user.role === "admin"){       
                    router.push("/")
             } 
+          router.push("/Profile")
         }
     }, [router, session, session?.user.role, status])
     return (

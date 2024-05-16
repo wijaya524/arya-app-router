@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import { useSession } from "next-auth/react";
 
 export default function Navbar() {
-  const {  status } : { status: string} = useSession();
+  const { status } : { status: string} = useSession();
 
   return (
     <nav className="  w-full max-w-full flex py-5 px-5 bg-slate-600 justify-between items-center">
@@ -25,22 +25,22 @@ export default function Navbar() {
             <li>About</li>
           </Link>
         </ul>
-        {status === "authenticated" ? (
+        {status === "authenticated" ? (       
           <Button
-            variant="contained"
-            type="submit"
-            onClick={() => signOut()}
-          >
-            sign out
-          </Button>
+          variant="contained"
+          type="submit"
+          onClick={() => signOut()}
+        >
+          Log out
+        </Button>
         ) : (
           <Button
-            variant="contained"
-            type="submit"
-            onClick={() => signIn()}
-          >
-            sign in
-          </Button>
+          variant="contained"
+          type="submit"
+          onClick={() => signIn()}
+        >
+          sign in
+        </Button>
         )}
 
       </div>
