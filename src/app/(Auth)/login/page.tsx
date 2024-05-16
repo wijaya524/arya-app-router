@@ -13,14 +13,23 @@ import { useRouter } from "next/navigation";
 export default function Login() {
    const { push } = useRouter()
 
-  const HandleSubmit:React.FormEventHandler<HTMLFormElement> = async (e: any) => {
+  const HandleSubmit = async (e: any) => {
     e.preventDefault();
-   const res =  signIn("credentials", {
-      email: e.target.email.value,
-      password: e.target.password.value,
-      redirect: false
-    })
-    console.log(res)
+    try{
+      const res = await  signIn("credentials", {
+        email: e.target.email.value,
+        password: e.target.password.value,
+        redirect: false,
+        callbackUrl: "/Profile"
+      })
+      if(!res?.error) {
+        push("/Profile")
+      } else {
+        console.log(res.error)
+      }
+    } catch(err) {
+      console.log(err)
+    }
   } 
   return (
     <React.Fragment>

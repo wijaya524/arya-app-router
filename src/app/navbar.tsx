@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react";
 import { signIn, signOut } from "next-auth/react";
 import Link from "next/link";
