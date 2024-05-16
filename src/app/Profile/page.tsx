@@ -9,10 +9,14 @@ export default function Profile() {
     console.log(session)
 
     useEffect(() => {
-        if (status === "unauthenticated" || session?.user.role !== "admin") {
+        if (status === "unauthenticated" ) {
             router.push("/login")
+        }else {
+           if(session !== undefined && session?.user.role === "admin"){       
+                   router.push("/")
+            } 
         }
-    }, [router,  session?.user.role, status])
+    }, [router, session, session?.user.role, status])
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <h1>Profile</h1>

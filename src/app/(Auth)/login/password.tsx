@@ -19,6 +19,8 @@ export default function PasswordInput() {
     <label htmlFor="Password">Password</label>
     <OutlinedInput fullWidth
      id='Password'
+     typeof='password'
+     name='password'
       sx={{ outline: 'none', borderColor: 'green'}}
       type={showPassword ? 'text' : 'password'}
       endAdornment={

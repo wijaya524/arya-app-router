@@ -7,14 +7,36 @@ import FullWidthTextField from "./Input";
 import PasswordInput from "./password";
 import Link from "next/link"
 import BasicButtons from "./button";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+
 export default function Login() {
-   
+   const { push } = useRouter()
+
+  const Handlelogin = async (e: any) => {
+    e.preventDefault();
+    try {
+      const res = await signIn("credentials", {
+        email: e.target.email.value,
+        password: e.target.password.value,
+        callbackUrl: "/profile",
+        redirect: false,
+      })
+      if(!res?.error){
+        push("/profile")
+      } else{
+        console.log(res?.error)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  } 
   return (
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="md">
         <div className="flex justify-center items-center h-screen">
-          <form  className=" bg-slate-900 w-2/4  max-w-full px-5 py-5 rounded-xl border-2 border-blue-600 shadow-md shadow-blue-900">
+          <form onSubmit={() => {Handlelogin}} className=" bg-slate-900 w-2/4  max-w-full px-5 py-5 rounded-xl border-2 border-blue-600 shadow-md shadow-blue-900">
             <h1 className=" text-white py-3 text-3xl font-bold text-center">Login</h1>
             <FullWidthTextField type="email" label="Email" />
             <PasswordInput/>

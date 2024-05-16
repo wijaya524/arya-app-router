@@ -1,8 +1,12 @@
 import * as React from "react";
-import { signIn } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import Button from "@mui/material/Button";
+import { useSession } from "next-auth/react";
+
 export default function Navbar() {
+  const {  status } : { status: string} = useSession();
+
   return (
     <nav className="  w-full max-w-full flex py-5 px-5 bg-slate-600 justify-between items-center">
       <h1>Navbar</h1>
@@ -21,9 +25,24 @@ export default function Navbar() {
             <li>About</li>
           </Link>
         </ul>
-        <Button variant="contained" type="submit" onClick={() => signIn()}>
-          sign in
-        </Button>
+        {status === "authenticated" ? (
+          <Button
+            variant="contained"
+            type="submit"
+            onClick={() => signOut()}
+          >
+            sign out
+          </Button>
+        ) : (
+          <Button
+            variant="contained"
+            type="submit"
+            onClick={() => signIn()}
+          >
+            sign in
+          </Button>
+        )}
+
       </div>
     </nav>
   );

@@ -6,7 +6,7 @@ export default function FullWidthTextField(props : {label: string, type: string}
   return (
     <div className=' flex flex-col my-3'>
       <label htmlFor="fullWidth">{label}</label>
-      <TextField inputProps={{  autoComplete: 'off' }}  fullWidth  id="fullWidth" />
+      <TextField inputProps={{  autoComplete: 'off' }} name='email' type='email'  fullWidth  id="fullWidth" />
     </div>
   );
 }
