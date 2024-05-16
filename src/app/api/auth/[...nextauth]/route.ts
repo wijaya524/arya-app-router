@@ -1,72 +1,40 @@
-import NextAuth from "next-auth"
-import type { NextAuthOptions } from "next-auth"
-import CredentialsProvider from "next-auth/providers/credentials"
+import NextAuth from "next-auth";
+import type { NextAuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
 
-
-export  const authOptions: NextAuthOptions = {
-   session: {
-       strategy: "jwt"
-   },
-   secret : "aryansyah",
-   providers: [
+export const authOptions: NextAuthOptions = {
+  session: {
+    strategy: "jwt",
+  },
+  providers: [
     CredentialsProvider({
       type: "credentials",
-      name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "email", placeholder: "email" },
-        password: { label: "Password", type: "password" }
+        email: { label: "Email", type: "email" },
+        password: { label: "Password", type: "password" },
       },
-
-
-      async authorize(credentials, req) {
+      authorize(credentials, req) {
         const { email, password } = credentials as {
           email: string;
           password: string;
         };
-        if (email === "pandanwangi250@gmail.com" && password === "admin") {
-          return {
-            id: "1",
-            name: "Admin",
-            email: "admin", 
-            role: "admin" 
-          };
+
+        if (email === "pandanwangi250@gmail.com" && password === "admin12345") {
+          return null;
         }
-        return null;
-      }
-    })
- ],
+        return {
+          id: "123",
+          name: "aryansyah",
+        };
+      },
+    }),
+  ],
 
- callbacks: {
-  async jwt({token, account, profile, user } : any) {
-    if (account.provider === "credentials") {
-      token.email = user.email;
-      token.fullname = user.fullname;
-      token.role = user.role;
-    }
-    return token
-  },
+  //  pages: {
+  //    signIn: "/login"
+  //  }
+};
 
-  async session({ session, token } : any) {
-    if("email" in token) {
-      session.user.email = token.email;
-    }
-    if ("fullname" in token) {
-      session.user.fullname = token.fullname;
-    }
-    if ("role" in token) {
-      session.user.role = token.role;
-    }
-    return session
-    }
-},
-//  pages: {
-//    signIn: "/login"
-//  }
-}
+const handler = NextAuth(authOptions);
 
-const handler = NextAuth(authOptions)
-
-export {
-    handler as GET,
-    handler as POST
-}
+export { handler as GET, handler as POST };
