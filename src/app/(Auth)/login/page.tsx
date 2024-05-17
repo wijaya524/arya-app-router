@@ -9,12 +9,13 @@ import Link from "next/link"
 import BasicButtons from "./button";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { Sign } from "crypto";
-import Github from "next-auth/providers/github";
 
+
+//Login page
 export default function Login() {
    const { push } = useRouter()
 
+   //Logic when submit
   const HandleSubmit = async (e: any) => {
     e.preventDefault();
     try{

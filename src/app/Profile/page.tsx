@@ -4,6 +4,7 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
+//Profile page
 export default function Profile() {
     const { data: session, status } : {data: any, status: string} = useSession();
     const router = useRouter();

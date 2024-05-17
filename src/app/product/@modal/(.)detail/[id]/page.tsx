@@ -2,6 +2,8 @@ import Modal from "@/components/core/Modal";
 import { getData } from "@/service/product";
 import Button from '@mui/material/Button';
 
+
+//Default modal
 export default async function DetailProductPage(props: any) {
   const { params } = props;
   const products = await getData(

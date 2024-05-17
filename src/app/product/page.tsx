@@ -2,7 +2,7 @@ import { getData } from "@/service/product"
 import Link from "next/link"
 import Button from '@mui/material/Button';
 
-
+//Default product page
 export default async function Page() {
   const products = await getData('http://localhost:3000/api/productAPI')
   console.log(products)

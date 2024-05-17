@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 
+//Error handling page when call api
 export default function Error({
   error,
   reset,

@@ -1,5 +1,6 @@
 
 
+//Home page or landing page
 export default async function Home() {
 
   return (

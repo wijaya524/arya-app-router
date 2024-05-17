@@ -3,19 +3,23 @@ import CredentialsProviders from "next-auth/providers/credentials";
 import GitHubProvider from "next-auth/providers/github";;
 
 
+//SetUp NextAuth
 export const authOptions: NextAuthOptions = {
     session: {
         strategy: "jwt"
     },
     secret: "aryA",
     providers: [
+        //Use provider credentials
         CredentialsProviders({
             name: 'Credentials',
             type: 'credentials',
+            //Credentials
             credentials:{
                 email: { label: "Email", type: "email" },
                 password: { label: "Password", type: "password" },
             },
+        //Authorize for Credentials    
         async authorize(credentials) {
             const  {email, password} = credentials as {
                 email: string;
@@ -34,12 +38,15 @@ export const authOptions: NextAuthOptions = {
             }
         }
         }),
+        //Use provider github
         GitHubProvider({
             clientId: "Ov23liTegvuRJM67NSrN",
             clientSecret: "36465775a54078c945ed4fa00b74b54c25ffe501",
         })
     ],
+    //For callback
     callbacks: {
+        //Callback JWT
         async jwt ({ token, user, profile, account } : any ) {
             if (account?.provider === "credentials") {
                 token.fullname = user.fullname
@@ -48,6 +55,7 @@ export const authOptions: NextAuthOptions = {
             }
             return token
         },
+    //Callback Session
     async session ({ session, token } : any) {
       if ("email" in token) {
         session.user.email = token.email

@@ -7,8 +7,11 @@ import FullWidthTextField from "./Input";
 import InputAdornments from "./password";
 import BasicButtons from "./button";
 import Link from "next/link"
-export default function Login() {
+
+//Register page
+export default function Register() {
    
+
   return (
     <React.Fragment>
       <CssBaseline />

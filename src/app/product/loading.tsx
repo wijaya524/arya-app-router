@@ -1,3 +1,4 @@
+//Return for skeleton data
 export default function Loading() {
   return (
     <div className="  flex flex-wrap items-center justify-center mt-20 gap-10 w-full max-w-full min-w-96 animate-pulse">

@@ -6,6 +6,7 @@ import Link from "next/link";
 import Button from "@mui/material/Button";
 import { useSession } from "next-auth/react";
 
+//Navbar Page
 export default function Navbar() {
   const { status } : { status: string} = useSession();
 

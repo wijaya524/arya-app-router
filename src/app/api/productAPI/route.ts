@@ -59,10 +59,12 @@ const data = [
   
 ]
 
+//Logic for get product
 export async function GET(request: NextRequest) {
    const { searchParams } =  new URL(request.url);
    const id = searchParams.get("id")
 
+   //Logic for search id product
    if(id){
      const dataProduct =  await retrieveDataById("products", id);
         if (dataProduct){
@@ -79,6 +81,7 @@ export async function GET(request: NextRequest) {
     })
    }
 
+   //Logic for get all product
    const product = await retrieveData("products");
 
    return NextResponse.json({
