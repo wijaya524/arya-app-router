@@ -9,6 +9,8 @@ import Link from "next/link"
 import BasicButtons from "./button";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { Sign } from "crypto";
+import Github from "next-auth/providers/github";
 
 export default function Login() {
    const { push } = useRouter()
@@ -41,6 +43,7 @@ export default function Login() {
             <FullWidthTextField type="email" label="Email" />
             <PasswordInput/>
             <BasicButtons text="SIGN in"/>
+            <button onClick={() => signIn("github")}>GitHub</button>
             <p className=" text-center">Dont have an account? <Link href="/register" className=" font-semibold">Register</Link></p>
           </form>
         </div> 
