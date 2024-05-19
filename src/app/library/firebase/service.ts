@@ -1,4 +1,4 @@
-import { collection, getDocs, getFirestore, getDoc, doc } from "firebase/firestore";
+import { collection, getDocs, getFirestore, getDoc, doc, query, where } from "firebase/firestore";
 import app from "./init";
 
 const firestore = getFirestore(app);
@@ -22,3 +22,23 @@ export async function retrieveDataById(colectionName: string, id: string) {
     return data;
 }
 
+//Register
+export async function register(data:{
+    fullname: string;
+    email: string;
+    password: string;
+    role? : string;
+}, callback: Function,) {
+    const q = query(collection(firestore, "user"), where("email", "==", data.email)
+);
+const snapshot = await  getDocs(q)
+const users = snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data()
+}))
+if(users.length > 0) {
+    callback({status: 200, message: "Email already exist"})
+}else {
+    data.role = "member";
+}
+}
