@@ -19,9 +19,10 @@ export default function Profile() {
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <h1>Profile</h1>
+            <img src={session?.user?.image} alt={session?.user?.fullname} className=" rounded-full" />
             <h1>{session?.user?.email}</h1>
-            <h1>{session?.user?.fullname}</h1>
-            <img src={session?.user?.image} alt="" />
+            <h1>{session?.user?.username}</h1>
+            <h1>{session?.user?.role}</h1>
         </main>
     );
 }

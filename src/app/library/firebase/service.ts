@@ -1,5 +1,7 @@
-import { collection, getDocs, getFirestore, getDoc, doc, query, where } from "firebase/firestore";
+import { collection, getDocs, getFirestore, getDoc, doc, query, where, addDoc } from "firebase/firestore";
 import app from "./init";
+import bcrypt from "bcrypt"
+
 
 const firestore = getFirestore(app);
 
@@ -29,7 +31,7 @@ export async function register(data:{
     password: string;
     role? : string;
 }, callback: Function,) {
-    const q = query(collection(firestore, "user"), where("email", "==", data.email)
+    const q = query(collection(firestore, "users"), where("email", "==", data.email)
 );
 const snapshot = await  getDocs(q)
 const users = snapshot.docs.map((doc) => ({
@@ -37,8 +39,17 @@ const users = snapshot.docs.map((doc) => ({
     ...doc.data()
 }))
 if(users.length > 0) {
-    callback({status: 200, message: "Email already exist"})
+    callback({status: false, message: "Email already exist"})
 }else {
     data.role = "admin";
+    data.password = await bcrypt.hash(data.password, 10);
+
+    await addDoc(collection(firestore, "users"), data)
+    .then(() => {
+        callback({status: true, message: "Register success"})
+    })
+    .catch((err) => {
+        callback({status: false, message: err})
+    })
 }
 }
