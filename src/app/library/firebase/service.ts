@@ -39,6 +39,6 @@ const users = snapshot.docs.map((doc) => ({
 if(users.length > 0) {
     callback({status: 200, message: "Email already exist"})
 }else {
-    data.role = "member";
+    data.role = "admin";
 }
 }

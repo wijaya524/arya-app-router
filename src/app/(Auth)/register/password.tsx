@@ -18,6 +18,7 @@ export default function PasswordInput() {
     <div className='flex flex-col'>
     <label htmlFor="Password">Password</label>
     <OutlinedInput fullWidth
+     name='password'
      id='Password'
       sx={{ outline: 'none', borderColor: 'green'}}
       type={showPassword ? 'text' : 'password'}
