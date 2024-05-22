@@ -15,7 +15,7 @@ import { useState } from "react";
 export default function Register() {
   const {push} = useRouter()
   const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
+  const [isLoading, setLoading] = useState(false)
     const HandleSubmit = async (e: any) => {
       setError("")
       setLoading(true)
@@ -33,7 +33,7 @@ export default function Register() {
           push("/login")
           setLoading(false)
          } else {
-          setError("Email or username already exists")
+          setError("Something went wrong")
           setLoading(false)
          }
         }
@@ -45,13 +45,13 @@ export default function Register() {
       <CssBaseline />
       <Container maxWidth="md">
         <div className="flex justify-center items-center h-screen ">
-          {error !== "" && (<h1 className=" text-yellow-50">{error}</h1>)}
           <form onSubmit={(e) => HandleSubmit(e)} className="bg-slate-900 w-2/4  max-w-full px-5 py-5 rounded-xl border-2 border-blue-600 shadow-md shadow-blue-900">
             <h1 className=" text-white py-3 text-3xl font-bold text-center">Register</h1>
+          {error !== "" && (<h1 className=" italic text-red-600 text-center">{error}</h1>)}
             <FullWidthTextField type="email" label="Email" name="email"/>
             <FullWidthTextField type="text" label="Username" name="username"/>
             <InputAdornments/>
-            <BasicButtons text="SIGN up"/>
+            <BasicButtons  />
             <p className=" text-center"> have an account? <Link href="/login" className="font-semibold">Login</Link></p>
           </form>
         </div>

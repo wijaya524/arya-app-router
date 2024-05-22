@@ -1,6 +1,8 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProviders from "next-auth/providers/credentials";
-import GitHubProvider from "next-auth/providers/github";;
+import GitHubProvider from "next-auth/providers/github";
+import { login } from "../firebase/service";
+import { compare } from "bcrypt";
 
 
 //SetUp NextAuth
@@ -25,23 +27,23 @@ export const authOptions: NextAuthOptions = {
                 email: string;
                 password: string;
             }
-            const user : any = {
-                id : 1,
-                name: "admin",
-                email: "pandanwangi250@gmail.com",
-                role: "admin"
-            }
-            if(email === "pandanwangi250@gmail.com" && password === "admin"){
+            const user: any = await login({email});
+            if (user) {
+              const passwordConfirm = await compare(password, user.password);
+              if (passwordConfirm) {
                 return user
-            } else {
+              }
+              return null
+            }else{
                 return null
-            }
+              }
+        
         }
         }),
         //Use provider github
         GitHubProvider({
-            clientId: "Ov23liTegvuRJM67NSrN",
-            clientSecret: "36465775a54078c945ed4fa00b74b54c25ffe501",
+            clientId: process.env.GITHUB_ID || '',
+            clientSecret: process.env.GITHUB_SECRET || '',
         })
     ],
     //For callback
