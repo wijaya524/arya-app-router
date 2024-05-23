@@ -11,9 +11,9 @@ export default function Navbar() {
   const { status } : { status: string} = useSession();
 
   return (
-    <nav className="  w-full max-w-full flex py-5 px-5 bg-slate-600 justify-between items-center">
+    <nav className="  w-full max-w-full flex py-3 px-5 bg-slate-600 justify-between items-center">
       <h1>Navbar</h1>
-      <div className="flex items-center justify-between px-4 gap-5">
+      <div className="flex items-center justify-between px-4 gap-5"> 
         <ul className="flex justify-around gap-5">
           <Link href={"/"}>
             <li>Home</li>
