@@ -21,7 +21,7 @@ export default function Navbar() {
           <Link href={"/product"}>
             <li>Menu</li>
           </Link>
-          <Link href={"/Profile"}>
+          <Link href={"/profile"}>
             <li>Profile</li>
           </Link>
           <Link href={"/about"}>

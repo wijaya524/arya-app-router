@@ -9,7 +9,8 @@ import Link from "next/link"
 import BasicButtons from "./button";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import GitHubIcon from '@mui/icons-material/GitHub';
+import GitHubIcon from '@mui/icons-material/GitHub'
+
 
 
 //Login page
@@ -24,9 +25,9 @@ export default function Login() {
         email: e.target.email.value,
         password: e.target.password.value,
         redirect: false,
-        callbackUrl: "/"
+        callbackUrl: "/login"
       })
-      if(!res?.error) {
+      if(!res?.error) {  
         push("/")
       } else {
         console.log(res.error)
