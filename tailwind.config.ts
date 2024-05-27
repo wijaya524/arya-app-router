@@ -10,6 +10,10 @@ const config: Config = {
     "./public/**/*.html"
   ],
   theme: {
+    screens: {
+      'vsm': '340px',
+
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
