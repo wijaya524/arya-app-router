@@ -10,6 +10,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import MenuIcon from '@mui/icons-material/Menu';
+import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
@@ -50,7 +52,7 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      <Button onClick={toggleDrawer(true)}>Open drawer</Button>
+      <Button onClick={toggleDrawer(true)}><RestaurantMenuIcon className=' w-11'  /></Button>
       <Drawer open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>
