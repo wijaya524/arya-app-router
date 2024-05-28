@@ -52,9 +52,10 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      <Button onClick={toggleDrawer(true)}><RestaurantMenuIcon className=' w-11'  /></Button>
+      <Button onClick={toggleDrawer(true)} className='fixed left-0'><RestaurantMenuIcon color='primary' fontSize='large'/></Button>
       <Drawer open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
+        
       </Drawer>
     </div>
   );
