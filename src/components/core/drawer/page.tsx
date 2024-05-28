@@ -11,6 +11,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Home } from '@mui/icons-material';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 
 export default function TemporaryDrawer() {
@@ -52,10 +53,13 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      <Button onClick={toggleDrawer(true)} className='fixed left-0'><RestaurantMenuIcon color='primary' fontSize='large'/></Button>
+      <Button onClick={toggleDrawer(true)} className='fixed left-0'><RestaurantMenuIcon color='primary' sx={{ fontSize: 30 }}/></Button>
       <Drawer open={open} onClose={toggleDrawer(false)}>
-        {DrawerList}
-        
+        <ul className='flex flex-col w-20 px-28 text-center '>
+          <li className=' flex'><Home/>Home</li>
+          <li>Home</li>
+          <li>Home</li>
+        </ul>
       </Drawer>
     </div>
   );
