@@ -11,7 +11,8 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Home } from '@mui/icons-material';
+import { AccountCircle, Home, Info } from '@mui/icons-material';
+import Link from 'next/link'; 
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 
 export default function TemporaryDrawer() {
@@ -52,13 +53,14 @@ export default function TemporaryDrawer() {
   );
 
   return (
-    <div>
-      <Button onClick={toggleDrawer(true)} className='fixed left-0'><RestaurantMenuIcon color='primary' sx={{ fontSize: 30 }}/></Button>
+    <div className='' >
+      <Button onClick={toggleDrawer(true)} className='fixed left-0'><MenuIcon color='primary' sx={{ fontSize: 30 }}/></Button>
       <Drawer open={open} onClose={toggleDrawer(false)}>
-        <ul className='flex flex-col w-52 font-bold justify-center items-center  text-center '>
-          <li className=' flex'><Home/>Home</li>
-          <li>Home</li>
-          <li>Home</li>
+        <ul className='flex py-10 flex-col w-52 font-bold '>
+          <li className=' flex mb-1 px-14 py-1 hover:bg-slate-400 justify-start'><Home /><Link href={"/"} >Home</Link></li>
+          <li className=' flex mb-1 px-14 py-1 hover:bg-slate-400 '><RestaurantMenuIcon/><Link href={"/product"}>Menu</Link></li>
+          <li className=' flex mb-1 px-14 py-1 hover:bg-slate-400 '><AccountCircle/><Link href={"/profile"}>Profile</Link></li>
+          <li className=' flex mb-1 px-14 py-1 hover:bg-slate-400 '><Info/><Link href={"/about"}>About</Link></li>
         </ul>
       </Drawer>
     </div>
