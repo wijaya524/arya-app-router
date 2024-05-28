@@ -55,7 +55,7 @@ export default function TemporaryDrawer() {
     <div>
       <Button onClick={toggleDrawer(true)} className='fixed left-0'><RestaurantMenuIcon color='primary' sx={{ fontSize: 30 }}/></Button>
       <Drawer open={open} onClose={toggleDrawer(false)}>
-        <ul className='flex flex-col w-20 px-28 text-center '>
+        <ul className='flex flex-col w-52 font-bold justify-center items-center  text-center '>
           <li className=' flex'><Home/>Home</li>
           <li>Home</li>
           <li>Home</li>
