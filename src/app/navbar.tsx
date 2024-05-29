@@ -15,7 +15,7 @@ export default function Navbar() {
   return (
     <nav className="  w-full fixed max-w-full flex py-3 px-5 bg-transparent justify-between items-center">
       <h1 className=" vsm:hidden">Navbar</h1>
-    
+      <Navbardefault/>
       <DrawerContentUI/>
     </nav>
   );

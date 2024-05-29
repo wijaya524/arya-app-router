@@ -1,3 +1,4 @@
+
 import Landing from "@/components/core/headLanding/page";
 
 
@@ -5,7 +6,7 @@ import Landing from "@/components/core/headLanding/page";
 export default async function Home() {
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between ">
+    <main className="flex  flex-col items-center justify-between ">
       <Landing/>
       <h1>haha</h1>
     </main>

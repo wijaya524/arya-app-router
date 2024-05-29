@@ -51,12 +51,12 @@ export default function DrawerContentUI() {
   );
 
   return (
-    <div className=" drawer">
-      <Button onClick={toggleDrawer(true)}>
+    <div className=" drawer drawer-mobile flex items-center justify-between">
+      <Button className=" mr-16" onClick={toggleDrawer(true)}>
       <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M74-184v-136h812v136H74Zm0-228v-136h812v136H74Zm0-229v-136h812v136H74Z"/></svg>
         </Button>
       <Drawer open={open} onClose={toggleDrawer(false)}>
-        <ul className=" menu font-semibold p-4 w-80 min-h-full bg-base-200 text-base-content">
+        <ul className=" menu font-semibold p-4 w-[50vw] min-h-full bg-base-200 text-base-content">
           {/* Sidebar content here */}
           <button className="flex py-3 items-center gap-5 hover:bg-gray-800 ">
            <svg
@@ -84,6 +84,7 @@ export default function DrawerContentUI() {
           </button>
         </ul>
       </Drawer>
+      <h1>Navbar</h1>
     </div>
   );
 }
