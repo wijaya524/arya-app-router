@@ -15,8 +15,10 @@ const Landing = () => {
         className=" w-full object-cover pt-16 "
         src="/burger1.jpg"
         alt="burger"
-        
-      ></Image>
+        style={{
+          maxWidth: "100%",
+          height: "auto"
+        }}></Image>
 
       <div className=" absolute left-2 flex flex-col ">
         <div className={poppins.className}>
