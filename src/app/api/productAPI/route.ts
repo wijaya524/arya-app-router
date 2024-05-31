@@ -1,5 +1,5 @@
 import { NextResponse, NextRequest } from "next/server";
-import { retrieveDataById, retrieveData } from "@/app/library/firebase/service";
+import { retrieveDataById, retrieveData, retrievebestData } from "@/app/library/firebase/service";
 
 
 
@@ -38,4 +38,15 @@ export async function GET(request: NextRequest) {
     message: "Success",
     data: product
    })
+
+      //Logic for get data best seller
+      const bestProduct = await retrievebestData("bestseller");
+
+      return NextResponse.json({
+       status: 200,
+       message: "Success",
+       data: bestProduct
+      })
 }
+
+
