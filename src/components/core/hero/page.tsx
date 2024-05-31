@@ -16,12 +16,12 @@ export default function Hero() {
           <p className=" text-[8px] py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
              
         </div>
-        <aside className=" right-3 drop-shadow-2xl shadow-black">
+        <aside className=" right-3 drop-shadow-2xl shadow-black bg-no-repeat">
             <Image src="/beef.png" 
             alt="beef" 
             width={300} 
             height={400}
-            className=" w-32 object-contain "
+            className=" w-32 object-contain bg-no-repeat "
             />
         </aside>
       </div>

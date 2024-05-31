@@ -8,26 +8,26 @@ const poppins = Poppins({
 
 const Landing = () => {
   return (
-    <div className="  image object-contain flex flex-wrap items-center justify-center mt-0 gap-10 w-full max-w-full min-w-96 ">
-      <Image
-        width={500}
-        height={0}
-        className=" w-full object-cover pt-16 "
-        src="/burger1.jpg"
-        alt="burger"
-        style={{
-          maxWidth: "100%",
-          height: "auto"
-        }}></Image>
-
-      <div className=" absolute left-2 flex flex-col ">
-        <div className={poppins.className}>
-          <h1 className=" text-2xl z-10 left-0 top-40 font-bold drop-shadow-xl"><span className="text-orange-500">Enjoy</span> Our</h1>
-          <h1 className=" text-2xl z-10 left-0 top-40 font-bold ">
-            Delicious Meal
-          </h1>
-          <p className=" text-[10px]">Arya Restaurant, since 2022</p>
+    <div className=" w-full  bg-[url('/bg.jpg')] bg-no-repeat bg-cover flex items-center justify-center py-10">
+      <div className=" px-3 mt-16 py-5 font-bold flex w-[90%] h-[90%] bg-gray-900 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100 items-center">
+        <div className=" h-full w-[50%]  ">
+          <h1 className="poppins"> Enjoy Our</h1>
+          <h1 className="poppins">Delicious Meal</h1>
+          <p className=" text-[7px] py-2 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora </p>
+          <button className="bg-yellow-500 w-full text-white text-[10px] py-1 px-4 rounded">Explore</button>
         </div>
+        <aside>
+          <Image
+            src="/landingPage.png"
+            alt="landing"
+            width={300}
+            height={400}
+            sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
+            className=" w-56 object-contain bg-no-repeat "
+          />
+        </aside>
       </div>
     </div>
   );

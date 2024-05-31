@@ -30,7 +30,6 @@ export default async function Page() {
               src={item.image}
               alt="product image"
             />
-
             <div className="px-3 pb-5">
               <h5 className=" font-semibold text-[10px] tracking-tight text-white dark:text-white">
                 {item.title}
