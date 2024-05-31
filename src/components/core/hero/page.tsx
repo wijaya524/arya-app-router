@@ -7,31 +7,21 @@ const poppins = Poppins({
 });
 export default function Hero() {
   return (
-    <div className={poppins.className}>
-      <div className="hero-content text-center w-full ">
-        <Image
-          src="/wallpaper.jpg"
-          alt="wallpaper"
-          width={400}
-          height={400}
-          className=" w-full object-contain"
-          style={{
-            maxWidth: "100%",
-            height: "auto",
-          }}
-        />
-        <div className=" left-8 w-36 absolute drop-shadow-2xl shadow-black">
+    <div className="poppins w-full max-w-[90%] py-7">
+      <div className=" bg-[url('/wallpaper.jpg')] w-full flex items-center justify-around py-5 rounded-xl border">
+  
+        <div className="  w-36  flex flex-col  drop-shadow-2xl shadow-black ">
           
-          <h1 className=" text-sm z-10 left-0 top-40 font-bold drop-shadow-xl">Local flavour made</h1>
-          <p className=" text-[9px] py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, quibusdam. Molestiae exercitationem nulla nostrum dolore incidunt aut at obcaecati! Deserunt vitae aliquid dolores esse enim exercitationem ad impedit alias voluptatibus? </p>
+          <h1 className=" text-sm  font-bold drop-shadow-xl">Local flavour made</h1>
+          <p className=" text-[8px] py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
              
         </div>
-        <aside className="absolute right-3 drop-shadow-2xl shadow-black">
+        <aside className=" right-3 drop-shadow-2xl shadow-black">
             <Image src="/beef.png" 
             alt="beef" 
-            width={400} 
+            width={300} 
             height={400}
-            className=" w-52 object-contain "
+            className=" w-32 object-contain "
             />
         </aside>
       </div>
