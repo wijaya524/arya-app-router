@@ -47,7 +47,7 @@ export default function Login() {
             <PasswordInput/>
             <BasicButtons text="SIGN in" />
             <button onClick={() => signIn("github")} className=" bg-slate-950 w-full text-white flex justify-center items-center gap-2  py-2 px-4 border border-slate-300 rounded shadow"><GitHubIcon/> GitHub</button>
-            <p className=" text-center py-4">Dont have an account? <Link href="/register" className=" font-semibold">Register</Link></p>
+            <p className=" text-center py-4">Not have an account? <Link href="/register" className=" font-semibold">Register</Link></p>
           </form>
         </div> 
       </Container>

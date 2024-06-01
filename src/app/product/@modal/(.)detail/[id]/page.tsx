@@ -1,6 +1,7 @@
 import Modal from "@/components/core/Modal";
 import { getData } from "@/service/product";
 import Button from '@mui/material/Button';
+import Image from "next/image";
 
 
 //Default modal
@@ -13,7 +14,9 @@ export default async function DetailProductPage(props: any) {
   return (
       <Modal> 
 
-      <img
+      <Image
+          width={400}
+          height={300}
           className="p-8 rounded-t-lg object-cover h-80 w-full"
           src={products.data.image}
           alt="product image"

@@ -1,5 +1,6 @@
 import { json } from "stream/consumers";
 import { Button } from "@mui/material";
+import Image from "next/image";
 
 async function getData() {
   const res = await fetch("http://localhost:3000/api/bestProductApi");
@@ -28,7 +29,9 @@ export default async function Page() {
                 className=" w-[35%]  rounded-lg shadow dark:bg-gray-800 "
                 key={item.id}
               >
-                <img
+                <Image
+                  width={100}
+                  height={100}
                   className=" m-auto p-1 rounded-t-lg object-contain w-32 h-32"
                   src={item.image}
                   alt="product image"

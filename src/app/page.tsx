@@ -19,7 +19,7 @@ export default async function Home() {
     <main className="flex items-center justify-center  flex-col">
       <Landing/>
       <MainMenu/>
-       <Footer/>
+      <Footer/>
     </main>
   );
 }

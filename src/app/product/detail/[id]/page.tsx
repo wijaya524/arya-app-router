@@ -1,5 +1,6 @@
 import { getData } from "@/service/product";
 import Button from '@mui/material/Button';
+import Image from "next/image";
 
 export default async function DetailProductPage(props: any) {
   const { params } = props;
@@ -10,7 +11,9 @@ export default async function DetailProductPage(props: any) {
   return (
     <div className=" flex place-items-center justify-center items-center mt-20 gap-10">
       <div className="w-full max-w-sm bg-slate-800 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <img
+        <Image
+          width={400}
+          height={300}
           className="p-8 rounded-t-lg object-cover h-80 w-full"
           src={products.data.image}
           alt="product image"

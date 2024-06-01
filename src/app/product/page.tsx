@@ -12,8 +12,7 @@ export default async function Page() {
     <div className=" flex flex-wrap items-center justify-center  gap-10 w-full max-w-full min-w-96">
       {products.data.length > 0 &&
         products.data.map((product: any) => (
-          <Link
-            href={`/product/detail/${product.id}`}
+          <div
             className=" w-72 max-w-sm bg-slate-800 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 "
             key={product.id}
           >
@@ -25,7 +24,7 @@ export default async function Page() {
               alt="product image"
             />
 
-            <div className="px-5 pb-5">
+            <section className="px-5 pb-5">
               <h5 className="text-xl font-semibold tracking-tight text-white dark:text-white">
                 {product.title}
               </h5>
@@ -95,8 +94,8 @@ export default async function Page() {
                   </Button>
                 </Link>
               </div>
-            </div>
-          </Link>
+            </section>
+          </div>
         ))}
     </div>
   );
