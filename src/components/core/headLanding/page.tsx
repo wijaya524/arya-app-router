@@ -9,7 +9,7 @@ const poppins = Poppins({
 const Landing = () => {
   return (
     <div className=" w-full  bg-[url('/bg.jpg')] bg-no-repeat bg-cover flex items-center justify-center py-10">
-      <div className=" px-3 mt-16 py-5 font-bold flex w-[90%] h-[90%] bg-gray-900 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100 items-center">
+      <div className=" px-3 mt-16 py-5 font-bold flex w-[90%] h-[90%] bg-gray-900 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border-2 border-gray-100 items-center">
         <div className=" h-full w-[50%]  ">
           <h1 className="poppins"> Enjoy Our</h1>
           <h1 className="poppins">Delicious Meal</h1>
@@ -18,7 +18,7 @@ const Landing = () => {
         </div>
         <aside>
           <Image
-            src="/landingPage.png"
+            src="/beef.png"
             alt="landing"
             width={300}
             height={400}
