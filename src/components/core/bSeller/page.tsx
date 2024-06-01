@@ -19,35 +19,41 @@ export default async function Page() {
   console.log(bestData);
   return (
     <>
-    <div className=" flex flex-col border rounded-lg bg-red-700 ">
-    <h1 className="  font-bold text-center py-5">Best Menu</h1>
-     <div className=" flex flex-wrap items-center justify-center gap-10 ">
-      {bestData.data.length &&
-        bestData.data.map((item: any) => (
-          <div key={item.id} className=" w-[40%] max-w-sm bg-slate-800 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <img
-              className=" p-3 rounded-t-lg object-cover w-full "
-              src={item.image}
-              alt="product image"
-            />
-            <div className="px-3 pb-5">
-              <h5 className=" font-semibold text-[10px] tracking-tight text-white dark:text-white">
-                {item.title}
-              </h5>
-              <div className="grid  gap-3">
-                <span className=" text-[7px] text-white dark:text-white">
-                  {item.price.toLocaleString("id-ID", {
-                    style: "currency",
-                    currency: "IDR",
-                  })}
-                </span>
-                  <button className=" bg-sky-700 text-white text-[10px] py-1 px-4 rounded w-full">Detail</button>
+      <div className=" flex flex-col  rounded-lg bg-[url('/wallpaper.jpg')] ">
+        <h1 className="  font-bold text-center py-5">Best Menu</h1>
+        <div className=" flex flex-wrap items-center justify-center gap-5 ">
+          {bestData.data.length &&
+            bestData.data.map((item: any) => (
+              <div
+                className=" w-[35%]  rounded-lg shadow dark:bg-gray-800 "
+                key={item.id}
+              >
+                <img
+                  className=" m-auto p-1 rounded-t-lg object-contain w-32 h-32"
+                  src={item.image}
+                  alt="product image"
+                />
+
+                <div className=" px-2 pb-5 ">
+                  <h5 className="text-[10px] text-left font-semibold tracking-tight text-white dark:text-white">
+                    {item.title}
+                  </h5>
+                  <div className="grid gap-3">
+                    <span className="text-[5px] font-bold text-white dark:text-white">
+                      {item.price.toLocaleString("id-ID", {
+                        style: "currency",
+                        currency: "IDR",
+                      })}
+                    </span>
+                    <button className="bg-yellow-500 w-[100%] border text-white text-[10px]   rounded">
+                      Add
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
+            ))}
+        </div>
       </div>
-    </div>
-  </>
+    </>
   );
 }
