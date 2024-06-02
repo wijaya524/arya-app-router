@@ -1,5 +1,6 @@
 
 import BSeller from "@/components/core/bSeller/page";
+import Corrouselitem from "@/components/core/corrousel/page";
 import Footer from "@/components/core/footer/page";
 import Landing from "@/components/core/headLanding/page";
 import MainMenu from "@/components/core/mainMenu/page";
@@ -19,6 +20,7 @@ export default async function Home() {
     <main className="flex items-center justify-center  flex-col">
       <Landing/>
       <MainMenu/>
+      <Corrouselitem/>
       <Footer/>
     </main>
   );
