@@ -17,15 +17,6 @@ export async function retrieveData(colectionName: string) {
     return data;
 }
 
-//Get data product best seller
-export async function retrievebestData(colectionName: string) {
-  const snapshot = await getDocs(collection(firestore, colectionName));
-  const data = snapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data()
-  }));
-  return data;
-}
 
 
 //Get data product id from firebase

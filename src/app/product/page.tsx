@@ -9,23 +9,16 @@ export default async function Page() {
   console.log(products);
 
   return (
-    <div className=" flex flex-wrap items-center justify-center pt-16 gap-3 w-full ">
+    <div className=" flex flex-wrap items-center justify-center pt-16  w-full">
       {products.data.length > 0 &&
         products.data.map((product: any) => (
-          <div className="card w-[40%] bg-base-100 shadow-xl" key={product.id}>
-          <figure className=" p-2"><Image width={100} height={100} className=" w-full object-cover bg-no-repeat rounded-lg" src={product.image} alt="Shoes" /></figure>
-          <div className="card-body">
-            <h2 className="card-title">{product.title}</h2>
-            <p>   {product.price.toLocaleString("id-ID", {
-                    style: "currency",
-                    currency: "IDR",
-                  })}</p>
-            <div className="card-actions justify-end">
-            <Link href={`/product/detail/${product.id}`}>
-              <button className="btn btn-primary w-full">Buy Now</button>
+          <div className="card w-[50%]  shadow-xl " key={product.id}>
+          <Link href={`/product/detail/${product.id}`} >
+             <Image width={100} height={200} className=" w-full h-[50%] object-cover bg-no-repeat rounded-2xl p-2 HOVER " src={product.image} alt="Shoes" />   
             </Link>
+            <div className=" flex justify-center">
+            <h2 className="card-title text-[15px] px-4">{product.title}</h2> 
             </div>
-          </div>
         </div>
         ))}
     </div>

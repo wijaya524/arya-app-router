@@ -55,7 +55,7 @@ export default function DrawerContentUI() {
   const { status }: { status: string } = useSession();
 
   return (
-    <nav className=" drawer drawer-mobile flex items-center justify-between">
+    <div className=" drawer drawer-mobile flex items-center justify-between">
       <Button className=" w-[20%]" onClick={toggleDrawer(true)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -131,6 +131,6 @@ export default function DrawerContentUI() {
         </ul>
       </Drawer>
       <h1>Navbar</h1>
-    </nav>
+    </div>
   );
 }
