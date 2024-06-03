@@ -12,6 +12,8 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import Link from "next/link";
+import { signIn, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 export default function DrawerContentUI() {
   const [open, setOpen] = React.useState(false);
@@ -50,16 +52,18 @@ export default function DrawerContentUI() {
     </Box>
   );
 
+  const { status }: { status: string } = useSession();
+
   return (
     <nav className=" drawer drawer-mobile flex items-center justify-between">
-      <Button className="" onClick={toggleDrawer(true)}>
+      <Button className=" w-[20%]" onClick={toggleDrawer(true)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
           viewBox="0 -960 960 960"
           width="24px"
           fill="#e8eaed"
-          className=" mr-32"
+          className=""
         >
           <path d="M74-184v-136h812v136H74Zm0-228v-136h812v136H74Zm0-229v-136h812v136H74Z" />
         </svg>
@@ -67,6 +71,15 @@ export default function DrawerContentUI() {
       <Drawer open={open} onClose={toggleDrawer(false)}>
         <ul className=" menu font-semibold p-4 w-[50vw] min-h-full bg-base-200 text-base-content">
           {/* Sidebar content here */}
+          {status === "authenticated" ? (
+            <Button variant="contained" type="submit" onClick={() => signOut()}>
+              Log out
+            </Button>
+          ) : (
+            <Button variant="contained" type="submit" onClick={() => signIn()}>
+              sign in
+            </Button>
+          )}
           <button className="flex py-1 items-center gap-5 hover:bg-gray-800 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"

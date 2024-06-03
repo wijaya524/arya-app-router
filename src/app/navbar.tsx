@@ -13,7 +13,7 @@ export default function Navbar() {
   const { status } : { status: string} = useSession();
 
   return (
-    <nav className="  fixed z-10 max-w-full flex py-3 px-5 bg-transparent justify-between items-center w-full bg-gray-900 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-80 border border-gray-100
+    <nav className="  fixed z-10 max-w-full flex py-3 px-5 bg-transparent justify-between items-center w-full bg-blue-gray-900 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-80 
     ">
       <h1 className=" vsm:hidden">Navbar</h1>
       <Navbardefault/>
