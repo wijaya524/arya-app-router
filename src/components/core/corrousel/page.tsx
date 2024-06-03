@@ -14,12 +14,12 @@ export default function Corrouselitem() {
           />
         </div>
         <div id="item2" className="carousel-item w-full">
-          <Image
+          <img
             alt="DaisyUI"
             width={200}
             height={100}
-            src="/c2.jpg"
-            className="w-full object-cover"
+            src="/c22.png"
+            className="w-full object-contain"
           />
         </div>
         <div id="item3" className="carousel-item w-full">

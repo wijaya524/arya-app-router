@@ -21,6 +21,7 @@ export default async function Home() {
       <Landing/>
       <MainMenu/>
       <Corrouselitem/>
+      <BSeller/>  
       <Footer/>
     </main>
   );

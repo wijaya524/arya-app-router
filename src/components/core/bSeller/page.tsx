@@ -29,9 +29,8 @@ export default async function Page() {
                 className=" w-[35%]  rounded-lg shadow dark:bg-gray-800 "
                 key={item.id}
               >
-                <Image
-                  width={100}
-                  height={100}
+                <img
+              
                   className=" m-auto p-1 rounded-t-lg object-contain w-32 h-32"
                   src={item.image}
                   alt="product image"

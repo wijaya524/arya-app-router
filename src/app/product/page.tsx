@@ -9,38 +9,24 @@ export default async function Page() {
   console.log(products);
 
   return (
-    <div className=" flex flex-wrap items-center justify-center pt-16 gap-10 w-full ">
+    <div className=" flex flex-wrap items-center justify-center pt-16 gap-3 w-full ">
       {products.data.length > 0 &&
         products.data.map((product: any) => (
-          <div
-            className=" w-[35%] h-[20%] bg-slate-800 border  border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 "
-            key={product.id}
-          >
-            <Image
-              className="p-2 rounded-lg object-cover w-full"
-              width={100}
-              height={100}
-              src={product.image}
-              alt="product image"
-            />
-
-            <section className="px-3 pb-5">
-              <h5 className="text-[13px] font-semibold tracking-tight text-white dark:text-white">
-                {product.title}
-              </h5>
-              <div className="grid gap-2">
-                <span className="text-[8px] font-bold text-white dark:text-white">
-                  {product.price.toLocaleString("id-ID", {
+          <div className="card w-[40%] bg-base-100 shadow-xl" key={product.id}>
+          <figure className=" p-2"><Image width={100} height={100} className=" w-full object-cover bg-no-repeat rounded-lg" src={product.image} alt="Shoes" /></figure>
+          <div className="card-body">
+            <h2 className="card-title">{product.title}</h2>
+            <p>   {product.price.toLocaleString("id-ID", {
                     style: "currency",
                     currency: "IDR",
-                  })}
-                </span>
-                <Link href={`/product/detail/${product.id}`}>
-                  <button className=" w-full bg-blue-700 text-[12px]">View</button>
-                </Link>
-              </div>
-            </section>
+                  })}</p>
+            <div className="card-actions justify-end">
+            <Link href={`/product/detail/${product.id}`}>
+              <button className="btn btn-primary w-full">Buy Now</button>
+            </Link>
+            </div>
           </div>
+        </div>
         ))}
     </div>
   );
