@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="footer px-5 py-7 bg-base-300 text-base-content text-center flex flex-wrap justify-between gap-[5%]">
+    <footer className="footer px-5 py-7 bg-base-300 text-base-content text-center flex flex-wrap justify-between gap-[5%] md:justify-evenly">
   <nav className=" text-center">
     <h6 className="footer-title">Services</h6> 
     <a className="link link-hover">Branding</a>
