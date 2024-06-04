@@ -44,8 +44,8 @@ export default function Register() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="md">
-        <div className="flex justify-center items-center h-screen ">
-          <form onSubmit={(e) => HandleSubmit(e)} className="bg-slate-900 w-2/4  max-w-full px-5 py-5 rounded-xl border-2 border-blue-600 shadow-md shadow-blue-900">
+        <div className="flex justify-center items-center h-screen w-full ">
+          <form onSubmit={(e) => HandleSubmit(e)} className="bg-slate-900   max-w-full px-5 py-5 rounded-xl border-2 border-blue-600 shadow-md shadow-blue-900">
             <h1 className=" text-white py-3 text-3xl font-bold text-center">Register</h1>
           {error !== "" && (<h1 className=" italic text-red-600 text-center">{error}</h1>)}
             <FullWidthTextField type="email" label="Email" name="email"/>

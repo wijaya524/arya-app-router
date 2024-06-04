@@ -1,19 +1,13 @@
 "use client";
 import * as React from "react";
-import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import Link from "next/link";
 import { signIn, signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+
 
 export default function DrawerContentUI() {
   const [open, setOpen] = React.useState(false);
@@ -22,37 +16,10 @@ export default function DrawerContentUI() {
     setOpen(newOpen);
   };
 
-  const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
-      <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
-  const { status }: { status: string } = useSession();
+  const { data: session, status }: { data: any; status: string } = useSession();
+  const router = useRouter();
+  console.log(session);
+  console.log(status);
 
   return (
     <div className=" drawer drawer-mobile flex items-center justify-between">
@@ -72,6 +39,19 @@ export default function DrawerContentUI() {
         <ul className=" menu font-semibold p-4 w-[50vw] min-h-full bg-base-200 text-base-content">
           {/* Sidebar content here */}
           {status === "authenticated" ? (
+             <Image
+             src={session?.user?.image}
+             alt={session?.user?.fullname}
+             width={200}
+             height={200}
+             className=" rounded-full"
+           />
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="70px" fill="#e8eaed" className=" flex items-center w-full" ><path d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z"/></svg>
+          )}
+          <li className="text-center text-[12px]">{status === "authenticated" ? session?.user?.fullname : "Username"}</li>
+          <li className=" py-2">
+          {status === "authenticated" ? (
             <Button variant="contained" type="submit" onClick={() => signOut()}>
               Log out
             </Button>
@@ -80,6 +60,7 @@ export default function DrawerContentUI() {
               sign in
             </Button>
           )}
+          </li>
           <button className="flex py-1 items-center gap-5 hover:bg-gray-800 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"

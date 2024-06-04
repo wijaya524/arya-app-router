@@ -1,6 +1,5 @@
 import { getData } from "@/service/product";
 import Link from "next/link";
-import Button from "@mui/material/Button";
 import Image from "next/image";
 
 //Default product page
