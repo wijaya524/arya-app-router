@@ -22,7 +22,7 @@ export default function DrawerContentUI() {
   console.log(status);
 
   return (
-    <div className=" drawer drawer-mobile flex items-center justify-between">
+    <div className=" drawer drawer-mobile flex items-center justify-between lg:hidden">
       <Button className=" w-[20%]" onClick={toggleDrawer(true)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

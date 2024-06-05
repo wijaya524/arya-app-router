@@ -1,4 +1,3 @@
-
 import Footer from "@/components/core/footer/page";
 import Landing from "@/components/core/headLanding/page";
 import MainMenu from "@/components/core/mainMenu/page";
@@ -10,15 +9,13 @@ const poppins = Poppins({
   weight: ["400", "700"],
 });
 
-
 //Home page or landing page
 export default async function Home() {
-
   return (
     <main className="flex items-center justify-center  flex-col">
-      <Landing/>
-      <MainMenu/>  
-      <Footer/>
+      <Landing />
+      <MainMenu />
+      <Footer />
     </main>
   );
 }
