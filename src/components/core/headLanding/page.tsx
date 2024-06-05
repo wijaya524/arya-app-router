@@ -9,12 +9,12 @@ const poppins = Poppins({
 const Landing = () => {
   return (
     <div className=" w-full  bg-[url('/bg.jpg')] bg-no-repeat bg-cover flex items-center justify-center py-10">
-      <div className=" px-3 mt-16 py-5 font-bold flex w-[90%] h-[90%] bg-gray-900 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border-2 border-gray-100 items-center justify-between">
+      <div className=" px-3 mt-16 py-5 font-bold flex w-[90%] h-[90%] bg-gray-900 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 items-center justify-between">
         <div className=" h-full w-[50%]   ">
           <h1 className="poppins md:text-3xl"> Enjoy Our</h1>
           <h1 className="poppins  md:text-3xl">Delicious Meal</h1>
           <p className=" text-[7px] py-2  md:text-[12px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora </p>
-          <button className="bg-yellow-500 w-full text-white text-[10px] py-1 px-4 rounded md:text-lg md:mt-5 border">Explore</button>
+          <button className="bg-yellow-500 w-full text-white text-[10px] py-1 px-4 rounded md:text-lg md:mt-5 ">Explore</button>
         </div>
         <aside>
           <Image
