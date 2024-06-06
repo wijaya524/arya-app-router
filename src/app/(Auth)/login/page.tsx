@@ -15,10 +15,9 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 
 //Login page
 export default function Login({searchParams}: any) {
-   console.log("🚀 ~ Login ~ searchParams:", searchParams)
-   console.log(searchParams)
+   console.log(searchParams.callbackUrl)
    const { push } = useRouter()
-
+   const callbackUrl = searchParams.callbackUrl || "/";
    //Logic when submit
   const HandleSubmit = async (e: any) => {
     e.preventDefault();
@@ -27,10 +26,11 @@ export default function Login({searchParams}: any) {
         email: e.target.email.value,
         password: e.target.password.value,
         redirect: false,
-        callbackUrl: "/login"
+        callbackUrl
       })
       if(!res?.error) {  
-        push("/product")
+        e.target.reset()
+        push(callbackUrl)
       } else {
         console.log(res.error)
       }
