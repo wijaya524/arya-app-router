@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import react from "react";
+import Button from "@mui/material/Button";
+import { signIn, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 export default function Navbardefault() {
   const router = useRouter();
@@ -12,10 +14,14 @@ export default function Navbardefault() {
     { name: "Contact", href: "/contact" }
   ]
 
+  const { data: session, status }: { data: any; status: string } = useSession();
+  console.log(session);
+  console.log(status);
+
   return (
-   <nav className="hidden w-full lg:flex justify-between p-4">
+   <nav className="hidden w-full lg:flex justify-between p-4 items-center">
     <h1> Navbar</h1>
-    <div className="flex gap-5 ">
+    <div className="flex gap-5 items-center ">
       {NavLink.map((link) => (
         <Link
           key={link.name}
@@ -25,6 +31,15 @@ export default function Navbardefault() {
           {link.name}
         </Link>
       ))}
+       {status === "authenticated" ? (
+            <Button variant="contained" type="submit" onClick={() => signOut()}>
+              Log out
+            </Button>
+          ) : (
+            <Button variant="contained" type="submit" onClick={() => signIn()}>
+              sign in
+            </Button>
+          )}
     </div>
    </nav>
   );

@@ -14,7 +14,9 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 
 
 //Login page
-export default function Login() {
+export default function Login({searchParams}: any) {
+   console.log("🚀 ~ Login ~ searchParams:", searchParams)
+   console.log(searchParams)
    const { push } = useRouter()
 
    //Logic when submit
@@ -28,7 +30,7 @@ export default function Login() {
         callbackUrl: "/login"
       })
       if(!res?.error) {  
-        push("/")
+        push("/product")
       } else {
         console.log(res.error)
       }
